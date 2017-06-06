@@ -1,0 +1,39 @@
+
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 centered"><img ng-src="media/{{home.currentQuestion}}.jpg" alt=""></div>
+  <div class="col-md-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 centered"><h3>  Question {{home.currentQuestion + 1}}</h3>
+
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-4"></div>
+
+  <div class="col-md-4 centered flex">
+    <div class="boxes" ng-class = "{right : home.currentCorrect.includes(x)}" ng-repeat = "x in home.lookup[home.currentQuestion] track by $index">
+      <h4 ng-show = "home.currentCorrect.includes(x)">{{x}}</h4>
+    </div>
+  </div>
+  <div class="col-md-3">
+  <span ng-if ="home.currentQuestion < 4" class="glyphicon glyphicon-arrow-right  next-question" ng-click="home.changeQuestion()"></span>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 centered flex"></h3>
+    <div class="underline box" ng-class = "{wrong : home.wrong.includes(x)}"ng-repeat = "x in home.currentOptions track by $index" ng-click = "home.selectOption(x)">
+      <h4> {{x}}</h4>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
